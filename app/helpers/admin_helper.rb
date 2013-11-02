@@ -9,7 +9,8 @@ module AdminHelper
   end
 
   def is_admin?
-    current_doctor.email=='lnr@gmail.com'
+    true
+    #current_doctor.email=='lnr@gmail.com'
   end
 
 end

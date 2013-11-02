@@ -1,7 +1,22 @@
 Pingdoc::Application.routes.draw do
-  devise_for :doctors
 
-  devise_for :patients
+
+  #devise_for :doctors, controllers: {registrations: 'doctor_registrations',sessions:'doctor_sessions'}
+
+  resources :doctor_registrations
+
+  devise_for :doctors,:controllers => { :registrations => 'api/v1/doctor_registrations', :sessions=>'api/v1/doctor_sessions' }
+  devise_for :patients,:controllers => { :registrations => 'api/v1/patient_registrations', :sessions=>'api/v1/patient_sessions' }
+
+
+
+
+
+  namespace :api do
+    namespace :v1 do
+
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -7,6 +7,12 @@ gem 'rails', '3.2.14'
 
 gem 'mongoid'
 gem 'devise'
+gem 'haml-rails'
+
+#For making requests to the API
+gem 'faraday'
+gem 'faraday_middleware'
+
 
 
 # Gems used only for assets and not required

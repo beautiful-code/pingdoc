@@ -1,4 +1,4 @@
-class Api::V1::DoctorSessionsController < ApplicationController
+class Api::V1::DoctorSessionsController < Devise::SessionsController
   before_filter :authenticate_doctor!, :except => [:create, :destroy]
   respond_to :json
 

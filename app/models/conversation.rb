@@ -8,4 +8,8 @@ class Conversation
   field :conversable_type, :type => String
 
   belongs_to :conversable, polymorphic: true
+
+  def add_message actor, msg
+    Message.create(:conversation => self, :sender_id => actor.id, :sender_class => actor.class.to_s, :msg => msg)
+  end
 end

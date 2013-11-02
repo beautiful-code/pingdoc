@@ -2,6 +2,9 @@ Pingdoc::Application.routes.draw do
 
   resources :conversations
 
+  resources :consultations
+
+  resources :admin
 
   #resources :doctor_registrations
 

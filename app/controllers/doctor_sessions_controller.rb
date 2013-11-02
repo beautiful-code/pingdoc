@@ -10,7 +10,7 @@ class DoctorSessionsController < Devise::SessionsController
     else
       respond_to do |format|
         format.json  {render json: {:success=>true, :authentication_token=>resource.authentication_token, :email=>resource.email}}
-        format.html
+        format.html  {redirect_to root_path}
       end
     end
   end

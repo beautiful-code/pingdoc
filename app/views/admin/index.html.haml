@@ -1,0 +1,21 @@
+#header Admin Index
+
+= link_to 'Create a Doctor',new_doctor_registration_path
+= link_to 'Create a Patient',new_patient_registration_path
+
+%br
+  %br
+.header Map a patient to doctor
+
+= form_for(Consultation.new) do |f|
+  .field
+    Patient
+    = f.collection_select(:patient_id,Patient.all,:id,:email)
+  .field
+    Doctor
+    = f.collection_select(:doctor_id,Doctor.all,:id,:email)
+
+  = f.submit 'Map'
+
+
+

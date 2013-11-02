@@ -15,12 +15,14 @@ class DoctorSessionsController < Devise::SessionsController
     end
   end
 
+=begin
   def destroy
     resource = Doctor.find_for_database_authentication(:email => params[:email])
     resource.authentication_token = nil
     resource.save
     render :json=> {:success=>true}
   end
+=end
 
   protected
 

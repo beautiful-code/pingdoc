@@ -26,9 +26,10 @@ class Doctor
   field :current_sign_in_ip, :type => String
   field :last_sign_in_ip,    :type => String
 
- #Token authenticatable
- field :authentication_token, :type => String
+  #Token authenticatable
+  field :authentication_token, :type => String
 
   before_save :ensure_authentication_token
 
+  has_many :consultations
 end

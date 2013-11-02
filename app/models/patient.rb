@@ -30,4 +30,6 @@ class Patient
   field :authentication_token, :type => String
 
   before_save :ensure_authentication_token
+
+  has_many :consultations
 end

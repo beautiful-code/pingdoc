@@ -1,6 +1,5 @@
 Pingdoc::Application.routes.draw do
 
-
   #devise_for :doctors, controllers: {registrations: 'doctor_registrations',sessions:'doctor_sessions'}
 
   resources :doctor_registrations
@@ -17,6 +16,8 @@ Pingdoc::Application.routes.draw do
 
     end
   end
+
+  root :to => 'home#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,4 +1,4 @@
-class Api::V1::DoctorSessionsController < Devise::SessionsController
+class DoctorSessionsController < Devise::SessionsController
   before_filter :authenticate_doctor!, :except => [:create, :destroy]
   respond_to :json
 
@@ -8,7 +8,10 @@ class Api::V1::DoctorSessionsController < Devise::SessionsController
     unless self.resource
       invalid_login_attempt
     else
-      render :json=> {:success=>true, :auth_token=>resource.authentication_token, :email=>resource.email}
+      respond_to do |format|
+        format.json  {render json: {:success=>true, :authentication_token=>resource.authentication_token, :email=>resource.email}}
+        format.html
+      end
     end
   end
 

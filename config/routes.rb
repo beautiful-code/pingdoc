@@ -1,6 +1,7 @@
 Pingdoc::Application.routes.draw do
 
-  #devise_for :doctors, controllers: {registrations: 'doctor_registrations',sessions:'doctor_sessions'}
+  resources :conversations
+
 
   resources :doctor_registrations
 

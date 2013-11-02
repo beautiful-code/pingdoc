@@ -34,4 +34,12 @@ class Doctor
   before_save :ensure_authentication_token
 
   has_many :consultations
+
+  def as_json(options={})
+    {
+      :email => email,
+      :consultations => consultations
+    }
+  end
+
 end

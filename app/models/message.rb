@@ -8,4 +8,5 @@ class Message
   validates_presence_of :sender_id, :sender_class, :msg
 
   embedded_in :conversation
+
 end

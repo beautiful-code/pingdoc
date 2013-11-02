@@ -6,13 +6,10 @@ Pingdoc::Application.routes.draw do
 
   resources :admin
 
-  #resources :doctor_registrations
+  resources :doctors, :only => [:index, :show]
 
   devise_for :doctors,:controllers => { :registrations => 'doctor_registrations', :sessions=>'doctor_sessions' }
   devise_for :patients,:controllers => { :registrations => 'patient_registrations', :sessions=>'patient_sessions' }
-
-
-
 
 
   namespace :api do

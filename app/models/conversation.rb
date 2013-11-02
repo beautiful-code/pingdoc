@@ -12,4 +12,11 @@ class Conversation
   def add_message actor, msg
     Message.create(:conversation => self, :sender_id => actor.id, :sender_class => actor.class.to_s, :msg => msg)
   end
+
+  def as_json
+    {
+      :messages => messages
+    }
+  end
+
 end

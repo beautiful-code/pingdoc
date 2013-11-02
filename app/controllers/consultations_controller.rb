@@ -1,7 +1,8 @@
 class ConsultationsController < ApplicationController
 
   before_filter :signed_in_user
-  before_filter :authenticate_admin_user!
+  before_filter :authenticate_admin_user!, only: [:create,:destroy]
+  before_filter :load_resource
 
   def create
     #raise params.inspect
@@ -14,12 +15,20 @@ class ConsultationsController < ApplicationController
     end
   end
 
-  def new
-
+  def index
+    @consultations = @current_user.consultations
+    render json: @consultations
   end
 
   def show
-    @consultation = Consultation.find params[:id]
+    @consultation = @current_user.consultations.find params[:id]
+    render json: @consultation
+  end
+
+  private
+
+  def load_resource
+    @current_user  = current_doctor || current_patient
   end
 
 

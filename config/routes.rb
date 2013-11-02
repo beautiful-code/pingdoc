@@ -1,8 +1,10 @@
 Pingdoc::Application.routes.draw do
 
-  resources :conversations
 
-  resources :consultations
+
+  resources :consultations do
+    resources :conversations
+  end
 
   resources :admin
 
@@ -11,6 +13,8 @@ Pingdoc::Application.routes.draw do
   devise_for :patients,:controllers => { :registrations => 'patient_registrations', :sessions=>'patient_sessions' }
 
   resources :doctors, :only => [:index, :show]
+
+
 
   namespace :api do
     namespace :v1 do

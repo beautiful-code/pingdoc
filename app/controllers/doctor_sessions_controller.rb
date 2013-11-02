@@ -9,7 +9,7 @@ class DoctorSessionsController < Devise::SessionsController
       invalid_login_attempt
     else
       respond_to do |format|
-        format.json  {render json: {:success=>true, :authentication_token=>resource.authentication_token, :email=>resource.email}}
+        format.json  {render json: {:success=>true, :authentication_token=>resource.authentication_token, :doctor=> resource.to_json}}
         format.html  {redirect_to root_path}
       end
     end

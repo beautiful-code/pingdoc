@@ -1,6 +1,7 @@
 class ConversationsController < ApplicationController
-  # GET /conversations
-  # GET /conversations.json
+
+
+
   def index
     @conversations = Conversation.all
 
@@ -21,8 +22,7 @@ class ConversationsController < ApplicationController
     end
   end
 
-  # GET /conversations/new
-  # GET /conversations/new.json
+
   def new
     @conversation = Conversation.new
 
@@ -80,4 +80,15 @@ class ConversationsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  private
+
+  def load_resource
+    @current_user  = current_doctor || current_patient
+  end
+
+
+
+
 end
